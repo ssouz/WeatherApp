@@ -15,49 +15,51 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class WeatherAppGui extends JFrame {
+    private JTextField searchTextField = new JTextField();
+    private JButton searchButton = new JButton(loadImage("src\\assets\\search.png"));
+    private JLabel weatherConditionImage = new JLabel(loadImage("src\\assets\\rainy.png"));
+    private JLabel temperatureText = new JLabel("0°C");
+    private JLabel weatherConditionDesc = new JLabel("Nublado");
+    private JLabel humidityImage = new JLabel(loadImage("src\\assets\\humidity.png"));
+    private JLabel humidityText = new JLabel("<html><b>Umidade</b> 100%</html>");
+    private JLabel windSpeedImage = new JLabel(loadImage("src\\assets\\wind.png"));
+    private JLabel windSpeedText = new JLabel("<html>Intencidade dos ventos<b></b> 15km/h</html>");
+
+
     public WeatherAppGui() {
         super("Previsão do Tempo");
+        setupFrame();
+        addGuiComponents();
 
+    }
+    private void setupFrame(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setSize(600, 800);
 
         setLocationRelativeTo(null);
 
-        
         setLayout(null);
 
         setResizable(false);
 
         getContentPane().setBackground(new Color(42, 44, 71));
-
-        addGuiComponents();
-
     }
 
     private void addGuiComponents() {
 
-        JTextField searchTextField = new JTextField();
-        JButton searchButton = new JButton(loadImage("src\\assets\\search.png"));
-        JLabel weatherConditionImage = new JLabel(loadImage("src\\assets\\rainy.png"));
-        JLabel temperatureText = new JLabel("null");
-        JLabel weatherConditionDesc = new JLabel("Nublado");
-        JLabel humidityImage = new JLabel(loadImage("src\\assets\\humidity.png"));
-        JLabel humidityText = new JLabel("<html><b>Umidade</b> 100%</html>");
-        JLabel windSpeedImage = new JLabel(loadImage("src\\assets\\windspeed.png"));
-        JLabel windSpeedText = new JLabel("<html>Intencidade dos ventos<b></b> 15km/h</html>");
-
-
-
-        searchTextField.setBounds(15, 15, 351, 45);
+        searchTextField.setBounds(15, 15, 450, 60);
         searchTextField.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
         searchTextField.setBackground(new Color(146, 87, 127));
         searchTextField.setForeground(Color.white);
-        searchTextField.setFont(defaultFont(14));
+        searchTextField.setFont(defaultFont(25));
         
 
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton.setBounds(375, 13, 50, 50);
+        searchButton.setBounds(480, 13, 76, 76);
+        searchButton.setBackground(Color.getColor(getName()));
+        searchButton.setBorder(null);
+        
 
         weatherConditionImage.setBounds(50, 250 , 450,96);
 
